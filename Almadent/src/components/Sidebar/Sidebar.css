@@ -1,0 +1,199 @@
+/* Основные переменные темы */
+:root {
+  --sidebar-bg: #1e2538;
+  --sidebar-hover-bg: #273046;
+  --sidebar-active-bg: #141927;
+  --sidebar-text: #a0a7b8;
+  --sidebar-text-active: #ffffff;
+  --sidebar-group-title: #5b657e;
+  --sidebar-width: 240px;
+  --accent-color: #3b82f6;
+  --badge-bg: #2d374e;
+}
+
+/* Мобильная кнопка вызова меню */
+.mobile-toggle-btn {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1001;
+  background-color: var(--sidebar-bg);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Затемнение фона для мобильного меню */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+
+/* Контейнер Sidebar */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Шапка с логотипом */
+.sidebar__logo-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar__logo-text {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 1.5px;
+}
+
+.sidebar__logo-dot {
+  color: var(--accent-color);
+}
+
+/* Навигация */
+.sidebar__nav {
+  flex: 1;
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.sidebar__group {
+  margin-bottom: 20px;
+}
+
+.sidebar__group-title {
+  padding: 0 20px 8px 20px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--sidebar-group-title);
+  font-weight: 600;
+}
+
+.sidebar__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar__item {
+  margin: 2px 0;
+}
+
+.sidebar__button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  color: var(--sidebar-text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  position: relative;
+}
+
+.sidebar__button:hover {
+  background-color: var(--sidebar-hover-bg);
+  color: #ffffff;
+}
+
+/* Активный пункт */
+.sidebar__button--active {
+  background-color: var(--sidebar-active-bg);
+  color: var(--sidebar-text-active);
+  font-weight: 600;
+}
+
+.sidebar__button--active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--accent-color);
+}
+
+.sidebar__icon {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.sidebar__label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Бэйджи (счетчики) */
+.sidebar__badge {
+  background-color: var(--badge-bg);
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Адаптив (Планшеты и Мобильные) */
+@media (max-width: 768px) {
+  .mobile-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebar--open {
+    transform: translateX(0);
+  }
+}
+.btn-exit {
+  font-size: 15px;
+  color: #a0a7b8;
+  background: rgba(255, 255, 255, 0.05);
+  width: 100%;
+
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-exit:hover {
+  background-color: var(--sidebar-active-bg);
+  color: #ffffff;
+}
