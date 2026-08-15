@@ -1,0 +1,35 @@
+
+.sidebar__logo-text {
+    margin: auto;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 1.5px;
+}
+
+.sidebar__logo-dot {
+  color: var(--accent-color);
+}
+
+.bg {
+  background-color: #606060;
+  height: 89vh;
+  width: 100wh;
+  padding-top:  80px;
+}
+.form {
+    text-align: center;
+    color: #222;
+    max-width: 300px;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.form input {
+  margin-top: 15px;
+  max-width: 91%;
+}

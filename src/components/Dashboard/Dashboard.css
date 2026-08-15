@@ -1,0 +1,16 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f9;
+}
+
+.dashboard-main {
+  flex: 1;
+  margin-left: 240px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    margin-left: 0;
+  }
+}

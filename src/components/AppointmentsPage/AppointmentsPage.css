@@ -1,0 +1,520 @@
+/* =========================
+   APP LAYOUT
+========================= */
+
+.app-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Inter, sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.journal-header {
+  background: #fff;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 10px rgba(0,0,0,.03);
+}
+
+.journal-header__left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.journal-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.journal-select {
+  min-width: 220px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 0 14px;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.journal-header__controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-nav,
+.btn-today {
+  height: 42px;
+  width: fit-content;
+  border-radius: 10px;
+  border: 1px solid #dbe2ea;
+  background: white;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn-nav:hover,
+.btn-today:hover {
+  background: #f3f4f6;
+}
+
+.btn-primary {
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#3b82f6,#2563eb);
+  color: white;
+  font-weight: 600;
+  padding: 0 18px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37,99,235,.25);
+}
+
+.view-switch {
+  display: flex;
+  background: #edf2f7;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.view-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.view-btn.active {
+  background: white;
+  color: #2563eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+/* =========================
+   GRID
+========================= */
+.journal-grid-wrapper {
+  width: 100%; 
+  max-width:calc(100vw - var(--sidebar-width));
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.journal-grid {
+  max-width:calc(100vw - var(--sidebar-width));
+  width: max-content;
+}
+
+/* =========================
+   HEADER ROW
+========================= */
+
+.grid-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: white;
+}
+
+.time-col-header {
+  width: 81px;
+  flex: none;
+
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+  padding: 16px 8px;
+  border-right: 1px solid #717171;
+  box-sizing: border-box;
+}
+
+.emp-info { 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.employee-card-header {
+  width: 210px;
+  flex: none;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-top:  1px solid #717171;
+  border-right: 1px solid #717171;
+  border-bottom: 2px solid #717171;
+  background: white;
+  box-sizing: border-box;
+}
+
+.emp-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#60a5fa,#2563eb);
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emp-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+.emp-sub {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* =========================
+   BODY
+========================= */
+
+.time-row {
+  display: flex;
+  min-height: 90px;
+  box-sizing: border-box;
+}
+
+.time-label {
+  width: 80px;
+  min-width: 80px;
+  padding-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  background: #fafafa;
+  border-right: 1px solid #717171;
+}
+
+.time-cell {
+  flex: 1;
+  width: 197px;
+    flex: none;
+  padding: 6px;
+  border-right: 1px solid #717171;
+  border-bottom: 2px solid #717171;
+  background: white;
+  cursor: pointer;
+}
+
+/* =========================
+   APPOINTMENT CARD
+========================= */
+
+.appointment-card {
+  background: white;
+  border-left: 4px solid #3b82f6;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.05);
+  transition: .2s;
+}
+
+.appointment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+
+.app-time-header {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 6px;
+}
+
+.app-client-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.app-client-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.app-detail {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+/* =========================
+   MODAL
+========================= */
+/* Базовые настройки box-sizing для всей формы */
+.modal-overlay *, 
+.modal-overlay *::before, 
+.modal-overlay *::after {
+  box-sizing: border-box;
+}
+
+/* Затемнение фона */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+/* Окно модалки */
+.modal-window {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Шапка модалки */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Кнопка закрытия (крестик) */
+.exit {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.exit:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* Форма */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Сетка по 3 элемента на больших экранах */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Контейнер для лейбла и поля (выравнивает высоту) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #4a5568;
+  white-space: nowrap;
+}
+
+/* Единые фиксированные размеры для ВСЕХ инпутов */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  height: 40px; /* Фиксированная высота предотвращает "плавание" */
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group textarea {
+  height: auto;
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Фокус на инпутах */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Нижние кнопки действия */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ------------------------------------------- */
+/* АДАПТИВ (Responsive design)                */
+/* ------------------------------------------- */
+
+/* Планшеты (до 768px): перевод сетки на 2 колонки */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Мобильные устройства (до 480px): все поля в 1 колонку */
+@media (max-width: 480px) {
+  .modal-window {
+    padding: 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .modal-actions button,
+  .modal-actions .btn {
+    width: 100%;
+  }
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 1024px) {
+  .journal-header {
+    padding: 14px;
+  }
+
+  .journal-header__controls {
+    width: 100%;
+  }
+
+  .employee-card-header,
+  .time-cell {
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .journal-title {
+    font-size: 18px;
+  }
+
+  .journal-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .journal-header__left,
+  .journal-header__controls {
+    width: 100%;
+  }
+
+.journal-grid-wrapper {
+  max-width:100vw ;}
+
+  .journal-select,
+  .btn-primary {
+    width: 100%;
+  }
+
+  .employee-card-header,
+  .time-cell {
+    min-width: 180px;
+  }
+
+  .modal-window {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}
